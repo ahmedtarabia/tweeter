@@ -28,10 +28,10 @@ body {
  */
 
 .container {
-   width: 90%;
-   background-color: #f4f1ec;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
- }
+  width: 90%;
+  background-color: #f4f1ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
