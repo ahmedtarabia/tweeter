@@ -1,0 +1,34 @@
+.all-tweets {
+  width: 90%;
+  margin-top: 15px;
+}
+
+.each-tweet {
+  border: 3px solid #656565;
+}
+
+
+
+img {
+  width: 70px;
+}
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet-header > div {
+  display: flex;
+  flex-direction: row;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer > div + div {
+  display: flex;
+  flex-direction: row;
+}
