@@ -1,13 +1,16 @@
 .all-tweets {
   width: 90%;
-  margin-top: 15px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .each-tweet {
   border: 3px solid #656565;
 }
 
-
+.each-tweet:hover {
+  box-shadow: 3px 3px rgb(145, 145, 187); 
+}
 
 img {
   width: 70px;
@@ -21,14 +24,48 @@ img {
 .tweet-header > div {
   display: flex;
   flex-direction: row;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.tweet-header > div + div > p {
+  color: rgb(197, 197, 220);
+  margin-right: 35px;
+  margin-top: 15px;
+}
+
+.tweet-header + p {
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-bottom: 25px;
+  border-bottom: 3px #656565 solid;
+  margin-bottom: 0;
 }
 
 footer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+footer > div {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 17px;
 }
 
 footer > div + div {
   display: flex;
   flex-direction: row;
+  margin-right: 35px;
+}
+
+footer > div > i {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: rgb(49, 64, 144)
+}
+
+footer > div > i:hover {
+  color: rgb(186, 154, 69); 
 }
