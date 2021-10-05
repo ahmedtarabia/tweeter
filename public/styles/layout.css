@@ -28,10 +28,11 @@ body {
  */
 
 .container {
-  width: 90%;
+  width: 100%;
   background-color: #f4f1ec;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 10px;
 }
