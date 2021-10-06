@@ -6,6 +6,8 @@
 
 .each-tweet {
   border: 3px solid #656565;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .each-tweet:hover {
@@ -13,7 +15,8 @@
 }
 
 img {
-  width: 70px;
+  width: 50px;
+  margin-right: 20px;
 }
 
 .tweet-header {
