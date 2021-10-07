@@ -39,7 +39,7 @@ $(document).ready(function() {
       </div>
     </header>
     
-    <p>${escape(data.content.text)}</p>
+    <p>${(escape(data.content.text)).replace(/%20/g, " ").replace(/%3F/g, "?").replace(/%21/g, "!").replace(/%2C/g,",")}</p>
   
     <footer>
       <div>${timeago.format(new Date())}</div>
