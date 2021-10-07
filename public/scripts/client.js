@@ -79,13 +79,12 @@ $(document).ready(function() {
     let textWithSpace = $(this).children("#tweet-text").val()
     console.log(textLength)
     if(textLength === 0 || textWithSpace.trim() === '') {
-      const error = `<p id="error1">Please input text! 🛑 </p>`
-      
-      $("#error-message").append(error)
+      $("#error1").text('Please input text! 🛑')
       $("#error-message").slideDown()
+      
     } else if (textLength > 140 ) {
-      const error = `<p id="error2">Text exceeds the limit! 🛑 </p>`
-      $("#error-message").append(error)
+      
+      $("#error1").text('Text exceeds the limit! 🛑')
       $("#error-message").slideDown()
     } else {
       $("#error-message").hide()
@@ -97,6 +96,18 @@ $(document).ready(function() {
     }
     
     
+    
+  })
+
+  $("#tweet-text").on("input", function(event) {
+    event.preventDefault();
+    let textLength = $(this).val().length
+    if(textLength > 0 && textLength <= 140) {
+      $("#error-message").hide()
+    } else if ( textLength > 140) {
+      $("#error1").text('Text exceeds the limit! 🛑')
+      $("#error-message").slideDown()
+    }
   })
 
 

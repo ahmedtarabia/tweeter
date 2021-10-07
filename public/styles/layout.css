@@ -36,3 +36,24 @@ body {
   flex-direction: column;
   margin-top: 10px;
 }
+
+.hide-error {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  
+
+  .container {
+    width: 65vw;
+    height: 50vw;
+    float: right;
+    margin-top: 230px;
+  }
+
+  .all-tweets {
+    width: 65vw;
+    height: 50vw;
+    float: right;
+  }
+} 

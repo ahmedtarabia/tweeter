@@ -8,8 +8,25 @@
   margin-top: 120px;
   background-color: #e0e0e0;
   background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+  
 }
 
 #profile-picture {
   width: 200px;
+}
+
+@media (min-width: 1024px) {
+  
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    margin-left: 70px;
+    width: 25vw;
+    height: 37vw;
+    float: left;
+    
+  }
 }

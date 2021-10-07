@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <!-- Google Fonts -->
@@ -41,7 +41,7 @@
 
     <header class="header-container">
       <div>
-          <img id="profile-picture" src="/images/despicableme.png"> 
+          <img id="profile-picture" src="/images/imgbin_hulk-png.png"> 
       </div>
       <br>
       <div>
@@ -53,10 +53,9 @@
     <main class="container">
       <section class="new-tweet">
         <form action="/" method="post" class="new-form">
-          <div id="error-message">
-            
+          <div id="error-message" class="hide-error">
+            <span id="error1"> </span>
           </div>
-          
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="button-and-counter">
