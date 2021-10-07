@@ -3,32 +3,30 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// Code runs when the DOM is ready.
 $(document).ready(function() {
-
-
-
-
+// fetch the tweets and render them else show the error.
   const loadTweets = () => {
     $.ajax({
       url: "/tweets",
       method: "GET",
       dataType: "json",
       success: (tweets) => {
-        console.log("data:", tweets)
+        console.log("data:", tweets);
         renderTweets(tweets);
       },
       error: (err) => {
-        console.log(`there was an error: ${err}`)
+        console.log(`there was an error: ${err}`);
       }
-    })
-  }
-  loadTweets()
+    });
+  };
+  loadTweets();
 
+  // Function that creates the tweets
   const createTweetElement = function(data) {
-    //take in tweet object? 
+    //take in tweet object
     //returns tweet article element
-    // if (data.content.text !== '' || data.content.text !== null || data.content.text.length <= 140 ) {
-      const $tweet = $(`<article class="each-tweet">
+    const $tweet = $(`<article class="each-tweet">
     <header class="tweet-header">
       <div>
         <img src=${data.user.avatars} alt="">
@@ -51,67 +49,65 @@ $(document).ready(function() {
     </footer>
   </article>`);
   
-    return $tweet
-  }
-    // } else {
-    //  alert("Cannot tweet due to exceeding max / empty text.")
-    // }
-    
-  const renderTweets = function(tweets){
+    return $tweet;
+  };
+  // This function loops over each tweet in an array of tweet objects and prepends each tweet in the tweetContainer by calling the createTweetElement function on it. 
+  const renderTweets = function(tweets) {
     const tweetContainer = $("#tweets-container");
     tweetContainer.empty();
-
+    // loop over an array of tweets
     for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet)
-      tweetContainer.prepend($tweet)
+      const $tweet = createTweetElement(tweet);
+      tweetContainer.prepend($tweet);
     }
-  }
+  };
 
+  // Listens for the tweet button and depending on scenario either tweets or shows an error due to no input or exceeding character limit. 
   const form = $(".new-form");
   form.on("submit", function(event) {
+    // To avoid browser refreshing
     event.preventDefault();
-    console.log('form was submitted');
 
     const serializedData = $(this).serialize();
     
+    // Variable declaration
+    let textLength = $(this).children("#tweet-text").val().length;
+    let textWithSpace = $(this).children("#tweet-text").val();
     
-    let textLength = $(this).children("#tweet-text").val().length
-    let textWithSpace = $(this).children("#tweet-text").val()
-    console.log(textLength)
-    if(textLength === 0 || textWithSpace.trim() === '') {
-      $("#error1").text('Please input text! 🛑')
-      $("#error-message").slideDown()
+    // Warns the user to enter text when text area is empty. No post requests.
+    if (textLength === 0 || textWithSpace.trim() === '') {
+      $("#error1").text('Please input text! 🛑');
+      $("#error-message").slideDown();
       
-    } else if (textLength > 140 ) {
-      
-      $("#error1").text('Text exceeds the limit! 🛑')
-      $("#error-message").slideDown()
+    // Warns user that the character limit exceeded. No post requests.
+    } else if (textLength > 140) {
+      $("#error1").text('Text exceeds the limit! 🛑');
+      $("#error-message").slideDown();
+
+    // If within the limit, hides any existing errors and posts a request. 
     } else {
-      $("#error-message").hide()
+      $("#error-message").hide();
       $.post('/tweets', serializedData, (response) => {
         console.log(response);
-  
-        loadTweets()
-      })
+        loadTweets();
+      });
     }
-    
-    
-    
-  })
+  });
 
+  // Just a nice addition to remove error when starting to type when between 0 and 140 and removes error when below the character limit. 
   $("#tweet-text").on("input", function(event) {
     event.preventDefault();
-    let textLength = $(this).val().length
-    if(textLength > 0 && textLength <= 140) {
-      $("#error-message").hide()
-    } else if ( textLength > 140) {
-      $("#error1").text('Text exceeds the limit! 🛑')
-      $("#error-message").slideDown()
+    let textLength = $(this).val().length;
+    if (textLength > 0 && textLength <= 140) {
+      $("#error-message").hide();
+    } else if (textLength > 140) {
+      $("#error1").text('Text exceeds the limit! 🛑');
+      $("#error-message").slideDown();
     }
-  })
+  });
 
 
-  // Test / driver code (temporary). Eventually will get this from the server.
+  // Hardcoded data for testing and to show an initial information when visiting the page. 
   const data = [
     {
       "user": {
@@ -135,17 +131,12 @@ $(document).ready(function() {
       },
       "created_at": 1461113959088
     }
-  ]
+  ];
 
   const $tweet = createTweetElement(data[0]);
-
-  // Test / driver code (temporary)
-  console.log("It is working",$tweet); // to see what it looks like
   $('#tweets-container').append($tweet); // to add it
-
-
   renderTweets(data);
 
-})
+});
 
 
