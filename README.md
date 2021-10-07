@@ -5,7 +5,7 @@ Tweeter is a simple, single-page Twitter clone.
 ## Final Product
 
 When you first visit the webapp from your desktop, the following will be the home page. You can read tweets and type tweets to post them.
-!["screenshot of frontpage"](https://github.com/ahmedtarabia/tweeter/public/images/firstpage.png?raw=true)
+!["screenshot of frontpage"](https://github.com/ahmedtarabia/tweeter/blob/master/public/images/firstpage.png?raw=true)
 
 If you tried to click the tweet button without adding any text, you will get the following error:
 !["screenshot of error1"](https://github.com/ahmedtarabia/tweeter/public/images/error1.png?raw=true)
