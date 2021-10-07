@@ -39,7 +39,7 @@ $(document).ready(function() {
       </div>
     </header>
     
-    <p>${data.content.text}</p>
+    <p>${escape(data.content.text)}</p>
   
     <footer>
       <div>${timeago.format(new Date())}</div>
@@ -73,15 +73,22 @@ $(document).ready(function() {
     console.log('form was submitted');
 
     const serializedData = $(this).serialize();
-    console.log(serializedData)
-
+    
+    
     let textLength = $(this).children("#tweet-text").val().length
+    let textWithSpace = $(this).children("#tweet-text").val()
     console.log(textLength)
-    if(textLength === 0) {
-      alert("Input text to tweet!")
+    if(textLength === 0 || textWithSpace.trim() === '') {
+      const error = `<p id="error1">Please input text! 🛑 </p>`
+      
+      $("#error-message").append(error)
+      $("#error-message").slideDown()
     } else if (textLength > 140 ) {
-      alert("Text exceeds the limit")
+      const error = `<p id="error2">Text exceeds the limit! 🛑 </p>`
+      $("#error-message").append(error)
+      $("#error-message").slideDown()
     } else {
+      $("#error-message").hide()
       $.post('/tweets', serializedData, (response) => {
         console.log(response);
   
