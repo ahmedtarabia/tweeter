@@ -3,6 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+ /* Styling related to the layout of the page */
 html {
   box-sizing: border-box;
 }
@@ -41,9 +42,8 @@ body {
   display: none;
 }
 
+/* Responsive design for desktops */
 @media (min-width: 1024px) {
-  
-
   .container {
     width: 65vw;
     height: 50vw;

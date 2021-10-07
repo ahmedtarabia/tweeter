@@ -1,3 +1,4 @@
+/* Styling related to all the header */
 .header-container {
   height: 400px;
   width: 100%;
@@ -15,9 +16,8 @@
   width: 200px;
 }
 
+/* Responsive design for Desktops */
 @media (min-width: 1024px) {
-  
-
   .header-container {
     display: flex;
     align-items: center;
