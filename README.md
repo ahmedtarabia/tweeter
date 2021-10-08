@@ -34,8 +34,7 @@ For tablet and mobile users, the responsive design of the webapp supports their 
 
 ## Optimization
 
-- Make the button for "Write a new tweet" shows the text area for typing new tweets if hidden.
-- When scrolling down, show a button that can take you to the top. 
+- Allow users to register, sign in and out 
 - Further UI/UX improvements. 
 
 
